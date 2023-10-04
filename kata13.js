@@ -24,16 +24,12 @@ const getDateWithSuffix = function(dateNum){
 }
 
 const talkingCalendar = function (date) {
-  //Spliting date, month and year
-  const dateArray = date.split('/');
-
-  const monthNum = dateArray[1];
+  //Spliting and destructuring date, month and year
+  const [year, monthNum, dateNum] = date.split('/');
   const month = getMonthName(monthNum);
-  
-  const dateNum = dateArray[2];
   const dateWithSuffix = getDateWithSuffix(dateNum);
   
-  return `${month} ${dateWithSuffix}, ${dateArray[0]}`;
+  return `${month} ${dateWithSuffix}, ${year}`;
 };
 
 console.log(talkingCalendar("2017/12/02"));
